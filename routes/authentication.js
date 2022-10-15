@@ -25,8 +25,14 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res) => {
     
     const {name, password} = req.body;
-    // console.log(name);
     return res.send(`Login Page`)
     });
+    
+
+router.get('/logout', (req, res) => {
+    console.log('User Session Over');
+    return res.redirect(`home`)
+    
+});
 
 module.exports = router
