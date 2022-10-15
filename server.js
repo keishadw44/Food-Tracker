@@ -8,6 +8,10 @@ const port = process.env.PORT || 3001;
 app.use(express.urlencoded({extended: true}));
 
 app.use(express.json());
+app.use(express.static('./public'));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 app.use(express.static('./public'));
 
@@ -17,6 +21,7 @@ app.set('view engine', 'ejs');
 
 app.use(require('./routes/authentication'));
 app.use(require('./routes/review'));
+app.use(require('./routes/food'))
 // app.use(require('./public/css'));
 
 
