@@ -6,16 +6,34 @@ router.use(function timeLog (req, res, next){
     next();
 });
 
+router.get('/home', (req, res) => {
+    return res.render(`home`, {
+        title: "Home Page"
+    })
+});
 
 
 router.get('/register', (req, res) => {
     return res.render(`register`)
+
 });
 
-router.post('/register', (req, res) => {
+router.get('/foodform', (req, res) => {
+    return res.render(`foodform`)
+});
+
+
+router.post('/foodform', (req, res) => {
     
-const {firstName, lastName, email, username, } = req.body
-return res.render(`register`)
+    const {foodName,  foodName2, foodName3, drink, mealType} = req.body
+
+    return res.render(`foodform`)
+});
+
+
+router.get('/register', (req, res) => {
+    const {firstName, lastName, email, username, } = req.body
+    return res.render(`register`)
 });
 
 router.get('/login', (req, res) => {

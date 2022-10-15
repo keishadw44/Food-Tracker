@@ -13,6 +13,7 @@ app.use(express.static('./public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
 app.use(express.static('./public'));
 
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +25,8 @@ app.use(require('./routes/review'));
 app.use(require('./routes/food'))
 // app.use(require('./public/css'));
 
+
+// app.use(require('./public/css'));
 
 app.listen(port, () => {
     console.log(`Server is running at port: ${port}`);
