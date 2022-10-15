@@ -9,24 +9,24 @@ router.use(function timeLog (req, res, next){
 
 
 router.get('/register', (req, res) => {
-    return res.send(`Registration Page`)
+    return res.render(`register`)
 });
 
 router.post('/register', (req, res) => {
     
-const {firstName, lastName, email} = req.body
-return res.send(`Registration Page`)
+const {firstName, lastName, email, username, } = req.body
+return res.render(`register`)
 });
 
 router.get('/login', (req, res) => {
-    return res.send(`Login Page`)
+    return res.send(`login`)
 });
 
 router.post('/login', (req, res) => {
     
     const {name, password} = req.body;
     // console.log(name);
-    return res.send(`Login Page`)
+    return res.send(`login`)
     });
 
 module.exports = router

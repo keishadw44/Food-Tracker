@@ -6,21 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<center><body>
     <form action="/register" method="POST">
         <h2> Sign Up</h2>
         <div class="input-field">
-            <input 
-            type="text"
+
+            <input type="text"
             name="firstName"
             id="firstName"
             placeholder="Enter your first name"
             title="letters only"
-           
-            name2="lastName"
-            id="lastName"
+            pattern="A-Za-z">
 
-            >
+           <div class="input-field">
+            <input type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Enter your last name"
+            title="letters only"
+            pattern="A-Za-z">
         </div>
-</body>
+<div class="input-field">
+            <input type="email"
+            name="emailAddress"
+            id="emailAddress"
+            placeholder="Enter email address"
+            title=""
+            pattern="">
+        </div>
+        
+        <br />
+
+<div class="input-field">
+            <input type="text"
+            name="username"
+            id="username" 
+            placeholder="Enter a username"
+            title="letters and numbers (no special characters, 4 character min, 12 character max)"
+            pattern="[A-Za-z0-9]{4,12}">
+</div>
+<div class="input-field">
+    <input type="password"
+    name="password"
+    id="password"
+    placeholder="Enter a password"
+    title="Enter a password, 4 character min, 12 character max"
+    pattern="[A-Za-z0-9]{4,12}">
+</div>
+<br />
+<button class="btn btn-primary" type="submit"> Register</button>
+
+    </form>
+</center></body>
 </html>
