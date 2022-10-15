@@ -9,8 +9,8 @@ router.use(function timeLog (req, res, next){
 router.get('/home', (req, res) => {
     return res.render(`home`, {
         title: "Home Page"
-    }
-})
+    })
+});
 
 
 router.get('/register', (req, res) => {
@@ -31,8 +31,9 @@ router.post('/foodform', (req, res) => {
 });
 
 
-const {firstName, lastName, email, username, } = req.body
-return res.render(`register`)
+router.get('/register', (req, res) => {
+    const {firstName, lastName, email, username, } = req.body
+    return res.render(`register`)
 });
 
 router.get('/login', (req, res) => {
