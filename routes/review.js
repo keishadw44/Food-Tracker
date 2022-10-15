@@ -9,7 +9,7 @@ router.use(function timeLog (req, res, next){
 
 
 router.get('/review', (req, res) => {
-   return res.send(`Review Page`)
+   return res.render(`Review Page`)
 });
 
 router.post('/review', (req, res) => {
