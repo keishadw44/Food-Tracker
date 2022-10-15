@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
 router.use(function timeLog (req, res, next){
@@ -6,23 +6,14 @@ router.use(function timeLog (req, res, next){
     next();
 });
 
-router.get('/home', (req, res) => {
-    return res.render(`home`, {
-        title: "Home Page"
-    })
-
-});
 
 router.get('/foodform', (req, res) => {
-    return res.render(`foodform`)
+    return res.send(`Food Form Page`)
 });
 
 router.post('/foodform', (req, res) => {
     
 const {foodName,  foodName2, foodName3, drink, mealType} = req.body
-
-return res.render(`foodform`)
+console.log(breakfastMeal, lunchMeal, dinnerMeal);
+return res.send(`Food Form`)
 });
-
-
-module.exports = router
