@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("partials/header.ejs") %> 
+</head>
+<body>
+    <div>
+
+        <!-- display food items -->
+    </div>
+</br>
+    <div>
+        <div class="d-flex flex-row col-container">
+            <div class="d-flex flex-row col-container">
+                <form action="/views/foodform" method="GET">
+                    <button class="btn btn-primary" type="submit">Add Food</button>
+                </form>
+            </br></br>
+                <form action="/views/home.ejs" method="GET">
+                    <button class="btn btn-primary" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+        <!-- event listener? -->
+    </div>
+
+</body>
+<script> console.log('does this work - food items')
+console.log(new Date());
+
+const foodObject = 
+[{   username: "name1", 
+    date: new Date(), 
+    mealCategory: "lunch", 
+    foodName: "apple", 
+    beverage: "water"
+},
+{   username: "name1", 
+    date: new Date(), 
+    mealCategory: "lunch", 
+    foodName: "orange", 
+    beverage: "water"
+},
+{   username: "name1", 
+    date: new Date(), 
+    mealCategory: "snack", 
+    foodName: "banana", 
+    beverage: "juice"
+}]
+</script>
+</html>
