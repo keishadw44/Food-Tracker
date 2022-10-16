@@ -18,6 +18,11 @@ router.get('/register', (req, res) => {
 
 });
 
+router.get('/login', (req, res) => {
+    return res.render(`login`)
+
+});
+
 router.get('/foodform', (req, res) => {
     return res.render(`foodform`)
 });
