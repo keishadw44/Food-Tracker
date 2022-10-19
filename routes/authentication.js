@@ -3,6 +3,7 @@ const router = express.Router();
 
 const brcypt = require('bcrypt');
 
+// middleware that is specific to this router
 router.use(function timeLog (req, res, next){
     console.log('Time: ', Date.now(), 'login.js');
     next();
