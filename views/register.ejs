@@ -8,15 +8,17 @@
 </head>
 <center><body>
     <form action="/register" method="POST">
-        <h2> Sign Up</h2>
+        <h2> Sign Up </h2>
         <div class="input-field">
 
             <input type="text"
             name="firstName"
             id="firstName"
             placeholder="Enter your first name"
-            title="letters only"
-            pattern="A-Za-z">
+            title="only letters"
+            pattern="[a-zA-Z]+"
+            required
+            >
 
            <div class="input-field">
             <input type="text"
@@ -24,15 +26,19 @@
             id="lastName"
             placeholder="Enter your last name"
             title="letters only"
-            pattern="A-Za-z">
+            pattern="[a-zA-Z]+"
+            required
+            >
+
         </div>
+
 <div class="input-field">
             <input type="email"
             name="emailAddress"
             id="emailAddress"
-            placeholder="Enter email address"
-            title=""
-            pattern="">
+            placeholder="Enter email address"  
+            required
+            >
         </div>
         
         <br />
@@ -43,7 +49,9 @@
             id="username" 
             placeholder="Enter a username"
             title="letters and numbers (no special characters, 4 character min, 12 character max)"
-            pattern="[A-Za-z0-9]{4,12}">
+            pattern="[A-Za-z0-9]{4,12}"
+            required
+            >
 </div>
 <div class="input-field">
     <input type="password"
@@ -51,11 +59,15 @@
     id="password"
     placeholder="Enter a password"
     title="Enter a password, 4 character min, 12 character max"
-    pattern="[A-Za-z0-9]{4,12}">
+    pattern="[A-Za-z0-9]{4,12}"
+    required
+    >
 </div>
 <br />
 <button class="btn btn-primary" type="submit"> Register</button>
 
     </form>
+
+    
 </center></body>
 </html>
