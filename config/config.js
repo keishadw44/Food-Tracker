@@ -1,7 +1,8 @@
 
 require('dotenv').config()
-  module.exports = {
-   "development": {
+
+module.exports = {
+  "development": {
     "username": process.env.DB_USERNAME,
     "password": process.env.DB_password,
     "database": process.env.DB_NAME,
@@ -9,6 +10,4 @@ require('dotenv').config()
     "dialect": "postgres",
   }
 }
-
-
 
