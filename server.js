@@ -1,15 +1,21 @@
+//require libraries
 const express = require("express");
 const path = require('path');
 require('dotenv').config();
 
+//store instance in variable for later
 const app = express();
 const port = process.env.PORT || 3001;
 
+//body-parser
 app.use(express.urlencoded({extended: true}));
 
 app.use(express.json());
+
+//setup public folder
 app.use(express.static('./public'));
 
+//view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
