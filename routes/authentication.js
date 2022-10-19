@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
+
+
+// middleware that is specific to this router
 router.use(function timeLog (req, res, next){
-    console.log('Time: ', Date.now(), 'authentication.js');
+    console.log('Time: ', Date.now(), 'login.js');
     next();
 });
 
@@ -15,6 +18,11 @@ router.get('/home', (req, res) => {
 
 router.get('/register', (req, res) => {
     return res.render(`register`)
+
+});
+
+router.get('/login', (req, res) => {
+    return res.render(`login`)
 
 });
 
