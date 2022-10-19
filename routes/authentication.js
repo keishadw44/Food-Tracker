@@ -4,7 +4,7 @@ const router = express.Router();
 const brcypt = require('bcrypt');
 
 router.use(function timeLog (req, res, next){
-    console.log('Time: ', Date.now(), 'authentication.js');
+    console.log('Time: ', Date.now(), 'login.js');
     next();
 });
 
@@ -16,12 +16,22 @@ router.get('/home', (req, res) => {
 
 
 router.get('/register', (req, res) => {
-    return res.render(`register`)
+    return res.render(`register`, {
+        title: "Register Page"
+    })
+  
+
+});
+
+router.get('/login', (req, res) => {
+    return res.render(`login`)
 
 });
 
 router.get('/foodform', (req, res) => {
-    return res.render(`foodform`)
+    return res.render(`foodform`, {
+        title: "Food Form"
+    })
 });
 
 
