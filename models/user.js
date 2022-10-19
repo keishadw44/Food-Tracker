@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.Foodform, {
+        foreignKey: 'userName'
+      });
     }
   }
   User.init({
