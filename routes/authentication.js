@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-
+const brcypt = require('bcrypt');
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next){
@@ -62,8 +62,9 @@ router.post('/login', (req, res) => {
     
 
 router.get('/logout', (req, res) => {
-    console.log('User Session Over');
-    return res.redirect(`home`)
+    req.session.destroy();
+    if(!req.session)console.log('User Session Over');
+    return res.redirect(`login`)
     
 });
 
