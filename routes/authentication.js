@@ -17,7 +17,10 @@ router.get('/home', (req, res) => {
 
 
 router.get('/register', (req, res) => {
-    return res.render(`register`)
+    return res.render(`register`, {
+        title: "Register Page"
+    })
+  
 
 });
 
@@ -27,7 +30,9 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/foodform', (req, res) => {
-    return res.render(`foodform`)
+    return res.render(`foodform`, {
+        title: "Food Form"
+    })
 });
 
 
