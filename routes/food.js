@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const User = require('./helpers/dbConnection')
+// const User = require('./helpers/dbConnection')
 
 router.use(function timeLog (req, res, next){
     console.log('Time: ', Date.now(), 'food');
