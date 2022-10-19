@@ -4,8 +4,15 @@
     <%- include ("partials/header.ejs") %> 
 </head>
 <body>
+    <div> <%- include("./partials/heading.ejs") %> </div>
+</br>
+</br>
+</br>
     <div>
-
+        <h1>Hey <%= formData.username %> </h1>
+            </br> 
+        <ul>You ate: <%= formData.foodName %>  </ul>
+        
         <!-- display food items -->
     </div>
 </br>
@@ -13,11 +20,11 @@
         <div class="d-flex flex-row col-container">
             <div class="d-flex flex-row col-container">
                 <form action="/views/foodform" method="GET">
-                    <button class="btn btn-primary" type="submit">Add Food</button>
+                    <button class="btn btn-warning" type="submit">Add Food</button>
                 </form>
             </br></br>
                 <form action="/views/home.ejs" method="GET">
-                    <button class="btn btn-primary" type="submit">Logout</button>
+                    <button class="btn btn-warning" type="submit">Logout</button>
                 </form>
             </div>
         </div>
@@ -25,7 +32,9 @@
     </div>
 
 </body>
-<script> console.log('does this work - food items')
+    <div> <%- include("./partials/footer.ejs") %> </div>
+
+<!-- <script> console.log('does this work - food items')
 console.log(new Date());
 
 const foodObject = 
@@ -47,5 +56,5 @@ const foodObject =
     foodName: "banana", 
     beverage: "juice"
 }]
-</script>
+</script> -->
 </html>

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const brcypt = require('bcrypt');
+
 router.use(function timeLog (req, res, next){
     console.log('Time: ', Date.now(), 'authentication.js');
     next();
@@ -49,8 +51,9 @@ router.post('/login', (req, res) => {
     
 
 router.get('/logout', (req, res) => {
-    console.log('User Session Over');
-    return res.redirect(`home`)
+    req.session.destroy();
+    if(!req.session)console.log('User Session Over');
+    return res.redirect(`login`)
     
 });
 

@@ -1,34 +1,64 @@
 const express = require("express");
 const router = express.Router();
 
+const User = require('./helpers/dbConnection')
+
 router.use(function timeLog (req, res, next){
-    console.log('Time: ', Date.now(), 'food.js');
+    console.log('Time: ', Date.now(), 'food');
     next();
 });
 
+function requireAuth(req, res, next) {
 
+   if(req.session.user) next();
+   else if(!req.session.user) {
+      req.session.destroy();
+      console.log("You are NOT logged in");
+      return req.redirect('/login');
+   }
+   else {
+      req.session.destroy();
+      console.log('You are NOT logged in');
+      return res.redirect('./register')
+   }
+}
 
-router.get('/food', (req, res) => {
+router.get('*', (req, res) => {
+   req.session.destroy();
+    if(!req.session)console.log('Session Destroyed');
+    return res.redirect(`home`)
+})
+
+router.get('/food', requireAuth, async (req, res) => {
+
+   
+
+   const records = await User.findAll();
+   let users = [];
+   records.map((record) => {
+      users.push(record.dataValues)
+   })
+
+   const formData = {  //attributes
+         username: "nameqb", 
+         date: new Date(), 
+         mealCategory: "lunch", 
+         foodName: "apple", 
+         beverage: "water"   
+      }
+
+      console.log(formData.mealCategory)
+   
+
     return res.render(`food`,{
-      title: "Food Daily"
+      userData:users,
+      formData: formData,
+      title: "Food Daily",
     })
 
  });
  
- router.post('/food', (req, res) => {
- 
-    const { username, date, mealCategory, foodName, beverage } = req.body;
-    //update foodTable (adding information based on the username/userid)
 
-   return res.send(`<h1>Hello ${username}! On ${date}, you've eaten ${foodName} for ${mealCategory} and had ${beverage} to drink </h1>`)
- 
-   //  return res.redirect(`foodform`)
- 
- });
- 
- 
-
- 
  
  module.exports = router
  
