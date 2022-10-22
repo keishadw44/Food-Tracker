@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const brcypt = require('bcrypt');
+// const brcypt = require('bcrypt');
+
+const Foodforms = require('../helpers/dbConnection');
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next){
@@ -29,24 +31,11 @@ router.get('/login', (req, res) => {
 
 });
 
-router.get('/foodform', (req, res) => {
-    return res.render(`foodform`, {
-        title: "Food Form"
-    })
-});
 
 
-router.post('/foodform', (req, res) => {
-    
-    const {foodName,  foodName2, foodName3, drink, mealType} = req.body
-
-    return res.render(`foodform`)
-});
-
-
-router.get('/register', (req, res) => {
+router.post('/register', (req, res) => {
     const {firstName, lastName, email, username, } = req.body
-    return res.render(`register`)
+    return res.render('register')
 });
 
 router.get('/login', (req, res) => {

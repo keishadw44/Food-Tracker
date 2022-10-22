@@ -13,7 +13,7 @@ router.get('/foodform', (req, res) => {
 
 router.post('/foodform', (req, res) => {
     
-const {foodName,  foodName2, foodName3, drink, mealType} = req.body
+const {foodName,  day, foodName3, drink, mealType} = req.body
 console.log(breakfastMeal, lunchMeal, dinnerMeal);
 return res.send(`Food Form`)
 });

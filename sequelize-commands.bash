@@ -21,3 +21,5 @@ npx sequelize-cli db:create
 npx sequelize-cli db:migrate
 
 npx sequelize-cli seed:generate --name user
+
+npx sequelize-cli db:seed --seed 20221019145727-Foodforms.js
