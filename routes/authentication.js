@@ -25,8 +25,9 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    return res.render(`login`)
-
+    return res.render(`login`, {
+    title: "Login"
+    })
 });
 
 router.get('/foodform', (req, res) => {
@@ -40,7 +41,9 @@ router.post('/foodform', (req, res) => {
     
     const {foodName,  foodName2, foodName3, drink, mealType} = req.body
 
-    return res.render(`foodform`)
+    return res.render(`foodform`, {
+        title: "Food Form"
+    })
 });
 
 
