@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+
+    <%- include ("./partials/header.ejs") %> 
+
 </head>
 <center><body>
-    <form action="/register" method="POST">
-        <h2> Sign Up </h2>
+  <div> <%- include("./partials/navbar.ejs") %> </div>
+    <form action="/register" method="POST" style="margin-top: 150px;">
+        <h1> Sign Up </h1>
         <div class="input-field">
 
             <input type="text"
@@ -64,10 +65,12 @@
     >
 </div>
 <br />
-<button class="btn btn-primary" type="submit"> Register</button>
+<button class="" type="submit" style="border-radius: 5px"> Register</button>
 
     </form>
 
     
 </center></body>
+<div> <%- include("./partials/footer.ejs") %> </div>
+
 </html>

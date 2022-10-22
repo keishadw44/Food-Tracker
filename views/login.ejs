@@ -14,16 +14,22 @@
     
   }
 
-</style>
+
+    <%- include ("./partials/header.ejs") %> 
+
 </head>
 <center><body>
-    <form action="/login" method="POST">
-        <label for="fname">User Name:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="lname">Password:</label><br>
-        <input type="text" id="password" name="password"><br>
-        <input type="submit" value="Submit">
+  <div> <%- include("./partials/navbar.ejs") %> </div>
+    <form action="/action_page.php" style="margin-top:150px;">
+      <h1> Login </h1>  
+      <label for="firstName">User Name:</label><br>
+        <input type="text" name="firstName" id="firstName" placeholder="username"><br>
+        <label for="lastName">Password:</label><br>
+        <input type="text" name="lastName" id="lastName" placeholder="Password"><br><br>
+        <button type="submit" value="Submit" style="border-radius: 5px">Submit</button>
       </form> 
-   <button type="button">Log In</button> 
-<center></body>
+   <button type="button" style="border-radius: 5px">Log In</button> 
+</center></body>
+<div> <%- include("./partials/footer.ejs") %> </div>
+
 </html>

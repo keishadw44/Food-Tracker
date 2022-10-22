@@ -2,14 +2,10 @@
 const express = require("express");
 const router = express.Router();
 
-// encryption
-const bcrypt = require(`bcrypt`); // used to encrypt passwords
 
-// import db module
-//const User = require(`../helpers/dbConnection`);
-// const models = require('../models')
-//const Sequelize = require('sequelize');
-//const { User } = require('../models');
+// const brcypt = require('bcrypt');
+
+const Foodforms = require('../helpers/dbConnection');
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next){
@@ -27,30 +23,77 @@ router.get('/home', (req, res) => {
 router.post('/register', (req, res) => {
     
     return res.render(`register`, {
-        title: `Register`,
-        pageID: `registerPage`
+
+        title: "Register",
+        pageID: "Register Page"
     });
+  
+
 });
 
-router.get('/foodform', (req, res) => {
-    return res.render(`foodform`, {
-        title: "Food Form"
+router.post('/register', async (req,res) =>{
+   try {
+    const { firstName, lastName, email, username, password} = req.body
+   
+   const records = await Users.findAll ({where: (email: email)});
+   
+if(records.length === 0) {
+    user.create({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        username: username,
+        password: password,
+    });
+    return res.redirect(`login`);
+}
+else {
+    return res.status(422).send({error: 'Email already exists'})
+}}
+})
+
+
+router.get('/login', (req, res) => {
+    return res.render(`login`, {
+    title: "Login"
     })
 });
+
+
 
 
 router.post('/foodform', (req, res) => {
     
     const {foodName,  foodName2, foodName3, drink, mealType} = req.body
 
-    return res.render(`foodform`)
+    return res.render(`foodform`, {
+        title: "Food Form"
+    })
 });
 
 
-router.get('/register', (req, res) => {
-    const {firstName, lastName, email, username, } = req.body
+router.post('/register', (req, res) => {
+    const {firstName, lastName, email, username, password} = req.body
     return res.render(`register`)
+
 });
+
+// const { firstName, lastName, email, username, password } = req.body;
+//     console.log("db"[0].dataValues.foodName);
+//     if (records != null) {
+//      if (foodName === records[0].dataValues.foodName) {
+//        res.render("/foodform");
+//         return res.redirect("/foodform");
+//        } else {
+//         return res.redirect("food");
+//        }
+    //  } 
+//      catch (error) {
+//     console.log("catch error");
+//     res.render("/foodform");
+//   }
+
+
 
 router.get('/login', (req, res) => {
     return res.render(`login`, {
@@ -76,8 +119,9 @@ router.post('/login', async (req, res) => {
     
 
 router.get('/logout', (req, res) => {
-    console.log('User Session Over');
-    return res.redirect(`home`)
+    req.session.destroy();
+    if(!req.session)console.log('User Session Over');
+    return res.redirect(`login`)
     
 });
 

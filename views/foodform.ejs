@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <%- include ('partials/header.ejs') %> 
+    <%- include ("./partials/header.ejs") %> 
 </head>
-
 <center><body>
+  <div> <%- include("./partials/navbar.ejs") %> </div>
     
-    <form action="/foodform" method="POST">
+    <form action="/foodform" method="POST" style="margin-top:150px;">
       <h1> Food List</h1>
       <h2 Enter your meals></h2>
         <div class="input-field">
@@ -15,12 +15,12 @@
         </div>
 
         <div class="input-field">
-            <input type="text" name="meal type" id="mealType"
+            <input type="text" name="mealType" id="mealType"
             placeholder="Enter the meal period">
         </div>
             
         <div class="input-field">
-            <input type="text" name="food name" id="foodName"
+            <input type="text" name="foodName" id="foodName"
             placeholder="Enter the food name">
         </div>
         
@@ -28,13 +28,25 @@
             <input type="text" name="beverage" id="beverage"
             placeholder="Enter your drink name">
         </div>
-       <button class="btn btn-primary" type="submit" > Add Food</button>
+        <br />
+
+       <button class="" type="submit" style="border-radius: 5px"> Add Food</button>
     </form>
     <div>
+        <br />
+
       <form action="./food" method="POST">
-            <button class="/views/food.ejs" type="submit"> Submit</button>
+            <button href="/views/food.ejs" type="submit" style="border-radius: 5px"> Submit</button>
         </form>
     </div>
 
+    <style>
+        body{
+            background-image: url(https://images.unsplash.com/photo-1600335895229-6e75511892c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80);
+        }
+    </style>
+
 </center></body>
+<div> <%- include("./partials/footer.ejs") %> </div>
+
 </html>
