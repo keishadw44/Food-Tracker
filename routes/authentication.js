@@ -1,5 +1,7 @@
+// require libraries
 const express = require("express");
 const router = express.Router();
+
 
 // const brcypt = require('bcrypt');
 
@@ -18,8 +20,10 @@ router.get('/home', (req, res) => {
 });
 
 
-router.get('/register', (req, res) => {
+router.post('/register', (req, res) => {
+    
     return res.render(`register`, {
+
         title: "Register",
         pageID: "Register Page"
     });
@@ -92,15 +96,26 @@ router.post('/register', (req, res) => {
 
 
 router.get('/login', (req, res) => {
-    return res.send(`login`)
+    return res.render(`login`, {
+        title: "Login"
+    })
 });
 
-router.post('/login', (req, res) => {
-    
-    const {name, password} = req.body;
+router.post('/login', async (req, res) => {
+    console.log(req.body)
+    const {username, password} = req.body;
+    console.log(`hey`);
+    console.log(username);
+    const user = await User.findOne({ where: { username: username } });
+    // const user = await User.findOne({ where: { email: 'fbyron710@gmail.com'} });
+    // const [user, created] = await User.findOrCreate({
+    // where: { username: 'sdepold', firstname: 'test1', lastName: 'test2', password: '1' }});
 
+    console.log("bam");
+    console.log(user);
+    
     return res.send(`Login Page`)
-    });
+ });
     
 
 router.get('/logout', (req, res) => {
