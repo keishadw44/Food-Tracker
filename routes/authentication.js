@@ -1,6 +1,8 @@
 // require libraries
 const express = require("express");
 const router = express.Router();
+const Sequelize = require('sequelize');
+const { User } = require('../models');
 
 
 // const brcypt = require('bcrypt');
@@ -31,14 +33,16 @@ router.post('/register', (req, res) => {
 
 });
 
-router.post('/register', async (req,res) =>{
+router.post('/register', async (req,res) => {
    try {
     const { firstName, lastName, email, username, password} = req.body
-   
-   const records = await Users.findAll ({where: (email: email)});
+    console.log(email);
+    console.log('HERE!!!')
+    console.log(req.body);
+   const records = await User.findAll({where: {email: email}});
    
 if(records.length === 0) {
-    user.create({
+    User.create({
         firstName: firstName,
         lastName: lastName,
         email: email,
@@ -49,7 +53,10 @@ if(records.length === 0) {
 }
 else {
     return res.status(422).send({error: 'Email already exists'})
-}}
+}
+} catch (error) {
+    console.log(error);
+}
 })
 
 
