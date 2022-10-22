@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const brcypt = require('bcrypt');
+// const brcypt = require('bcrypt');
+
+const Foodforms = require('../helpers/dbConnection');
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next){
@@ -46,9 +48,6 @@ else {
 }}
 })
 
- catch (error) {
-
-}
 
 router.get('/login', (req, res) => {
     return res.render(`login`, {
@@ -56,11 +55,7 @@ router.get('/login', (req, res) => {
     })
 });
 
-router.get('/foodform', (req, res) => {
-    return res.render(`foodform`, {
-        title: "Food Form"
-    })
-});
+
 
 
 router.post('/foodform', (req, res) => {
@@ -76,21 +71,23 @@ router.post('/foodform', (req, res) => {
 router.post('/register', (req, res) => {
     const {firstName, lastName, email, username, password} = req.body
     return res.render(`register`)
+
 });
 
-const { firstName, lastName, email, username, password } = req.body;
-    console.log("db"[0].dataValues.foodName);
-    if (records != null) {
-     if (foodName === records[0].dataValues.foodName) {
-       res.render("/foodform");
-        return res.redirect("/foodform");
-       } else {
-        return res.redirect("food");
-       }
-     } catch (error) {
-    console.log("catch error");
-    res.render("/foodform");
-  }
+// const { firstName, lastName, email, username, password } = req.body;
+//     console.log("db"[0].dataValues.foodName);
+//     if (records != null) {
+//      if (foodName === records[0].dataValues.foodName) {
+//        res.render("/foodform");
+//         return res.redirect("/foodform");
+//        } else {
+//         return res.redirect("food");
+//        }
+    //  } 
+//      catch (error) {
+//     console.log("catch error");
+//     res.render("/foodform");
+//   }
 
 
 
