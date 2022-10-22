@@ -3,10 +3,10 @@ require('dotenv').config()
 
 module.exports = {
   "development": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_password,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
+    "username": "",
+    "password": null,
+    "database":  "realfoodtracker",
+    "host": "127.0.0.1",
     "dialect": "postgres",
   }
 }

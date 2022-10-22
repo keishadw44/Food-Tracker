@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <%- include('./partials/header.ejs') %>
+  <title>Login Page  </title>
+  </head>
+<style>
+  body { 
+    background-color: blue;
+    font-size: x-large;
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+    
+  }
 
+</style>
 </head>
-<body>
-    <form action="/action_page.php">
+<center><body>
+    <form action="/login" method="POST">
         <label for="fname">User Name:</label><br>
-        <input type="text" id="fname" name="fname" value="John"><br>
+        <input type="text" id="username" name="username"><br>
         <label for="lname">Password:</label><br>
-        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="text" id="password" name="password"><br>
         <input type="submit" value="Submit">
       </form> 
    <button type="button">Log In</button> 
-</body>
+<center></body>
 </html>
