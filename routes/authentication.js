@@ -18,11 +18,37 @@ router.get('/home', (req, res) => {
 
 router.get('/register', (req, res) => {
     return res.render(`register`, {
-        title: "Register Page"
-    })
+        title: "Register",
+        pageID: "Register Page"
+    });
   
 
 });
+
+router.post('/register', async (req,res) =>{
+   try {
+    const { firstName, lastName, email, username, password} = req.body
+   
+   const records = await Users.findAll ({where: (email: email)});
+   
+if(records.length === 0) {
+    user.create({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        username: username,
+        password: password,
+    });
+    return res.redirect(`login`);
+}
+else {
+    return res.status(422).send({error: 'Email already exists'})
+}}
+})
+
+ catch (error) {
+
+}
 
 router.get('/login', (req, res) => {
     return res.render(`login`)
@@ -44,10 +70,26 @@ router.post('/foodform', (req, res) => {
 });
 
 
-router.get('/register', (req, res) => {
-    const {firstName, lastName, email, username, } = req.body
+router.post('/register', (req, res) => {
+    const {firstName, lastName, email, username, password} = req.body
     return res.render(`register`)
 });
+
+const { firstName, lastName, email, username, password } = req.body;
+    console.log("db"[0].dataValues.foodName);
+    if (records != null) {
+     if (foodName === records[0].dataValues.foodName) {
+       res.render("/foodform");
+        return res.redirect("/foodform");
+       } else {
+        return res.redirect("food");
+       }
+     } catch (error) {
+    console.log("catch error");
+    res.render("/foodform");
+  }
+
+
 
 router.get('/login', (req, res) => {
     return res.send(`login`)
