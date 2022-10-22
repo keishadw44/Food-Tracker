@@ -13,19 +13,19 @@
 </br> 
     <% foodObject.forEach(food => { %>
        
-        <% if (food.mealCategory === "breakfast") { %>
+        <% if (food.mealType === "breakfast") { %>
             <div>
-                <h3> What you had for: <%= food.mealCategory %></h3>
+                <h3> What you had for: <%= food.mealType %></h3>
                 <p><%= food.foodName %></p>
             </div>
-        <% } else if(food.mealCategory === "lunch"){ %>
+        <% } else if(food.mealType === "Lunch"){ %>
             <div>
-                <h3> What you had for: <%= food.mealCategory %></h3>
+                <h3> What you had for: <%= food.mealType %></h3>
                 <p><%= food.foodName %></p>
             </div>
         <% } else { %>
             <div>
-                <h3> What you had for: <%= food.mealCategory %></h3>
+                <h3> What you had for: <%= food.mealType %></h3>
                 <p><%= food.foodName %></p>
             </div>
         <% } %>
