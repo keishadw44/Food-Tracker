@@ -8,57 +8,79 @@ router.use(function timeLog (req, res, next){
     next();
 });
 
-function requireAuth(req, res, next) {
+// function requireAuth(req, res, next) {
 
-   if(req.session.user) next();
-   else if(!req.session.user) {
-      req.session.destroy();
-      console.log("You are NOT logged in");
-      return req.redirect('/login');
-   }
-   else {
-      req.session.destroy();
-      console.log('You are NOT logged in');
-      return res.redirect('./register')
-   }
-}
+//    if(req.session.user) next();
+//    else if(!req.session.user) {
+//       req.session.destroy();
+//       console.log("You are NOT logged in");
+//       return req.redirect('/login');
+//    }
+//    else {
+//       req.session.destroy();
+//       console.log('You are NOT logged in');
+//       return res.redirect('./register')
+//    }
 
-router.get('*', (req, res) => {
-   req.session.destroy();
-    if(!req.session)console.log('Session Destroyed');
-    return res.redirect(`home`)
-})
+// }
 
-router.get('/food', requireAuth, async (req, res) => {
 
+router.get('/food', (req, res) => { //re-add requireAuth, async
+   
+   
+   // const records = await User.findAll();
+   // let users = [];
+   // records.map((record) => {
+   //    users.push(record.dataValues)
+   // })
+   
+   const foodObject = [{  //attributes
+      username: "nameqb", 
+      date: new Date(), 
+      mealCategory: "breakfast", 
+      foodName: "apple", 
+      beverage: "water"   
+   },
+   {  
+      username: "nameqb", 
+      date: new Date(), 
+      mealCategory: "lunch", 
+      foodName: "orange", 
+      beverage: "juice"   
+   },
+   {
+      username: "nameqb", 
+      date: new Date(), 
+      mealCategory: "dinner", 
+      foodName: "banana", 
+      beverage: "water"   
+   },
+   {
+      username: "nameqb", 
+      date: new Date(), 
+      mealCategory: "dinner", 
+      foodName: "pomegranate", 
+      beverage: "water"   
+   }]
    
 
-   const records = await User.findAll();
-   let users = [];
-   records.map((record) => {
-      users.push(record.dataValues)
-   })
-
-   const formData = {  //attributes
-         username: "nameqb", 
-         date: new Date(), 
-         mealCategory: "lunch", 
-         foodName: "apple", 
-         beverage: "water"   
-      }
-
-      console.log(formData.mealCategory)
+   console.log(foodObject.mealCategory)
    
-
-    return res.render(`food`,{
-      userData:users,
-      formData: formData,
+   
+   return res.render(`food`,{
+      // userData:users,
+      foodObject: foodObject,
       title: "Food Daily",
-    })
+   })
+   
+});
 
- });
- 
 
+// router.get('*', (req, res) => {
+//    req.session.destroy();
+//     if(!req.session)console.log('Session Destroyed');
+//     return res.redirect(`home`)
+// })
  
  module.exports = router
  

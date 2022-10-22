@@ -1,60 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include ("partials/header.ejs") %> 
+    <%- include ("./partials/header.ejs") %> 
 </head>
-<body>
-    <div> <%- include("./partials/heading.ejs") %> </div>
+<center><body>
+    <div> <%- include("./partials/navbar.ejs") %> </div>
 </br>
 </br>
 </br>
-    <div>
-        <h1>Hey <%= formData.username %> </h1>
-            </br> 
-        <ul>You ate: <%= formData.foodName %>  </ul>
-        
-        <!-- display food items -->
-    </div>
-</br>
-    <div>
-        <div class="d-flex flex-row col-container">
-            <div class="d-flex flex-row col-container">
-                <form action="/views/foodform" method="GET">
-                    <button class="btn btn-warning" type="submit">Add Food</button>
-                </form>
-            </br></br>
-                <form action="/views/home.ejs" method="GET">
-                    <button class="btn btn-warning" type="submit">Logout</button>
-                </form>
+<div style="margin-top: 150px;">
+    <h1>Hey <%= foodObject[0].username %> </h1>
+</br> 
+    <% foodObject.forEach(food => { %>
+       
+        <% if (food.mealCategory === "breakfast") { %>
+            <div>
+                <h3> What you had for: <%= food.mealCategory %></h3>
+                <p><%= food.foodName %></p>
             </div>
-        </div>
-        <!-- event listener? -->
+        <% } else if(food.mealCategory === "lunch"){ %>
+            <div>
+                <h3> What you had for: <%= food.mealCategory %></h3>
+                <p><%= food.foodName %></p>
+            </div>
+        <% } else { %>
+            <div>
+                <h3> What you had for: <%= food.mealCategory %></h3>
+                <p><%= food.foodName %></p>
+            </div>
+        <% } %>
+    <% }) %>
+</div>
+    <div>
+        <br />
+
+                <form action="/foodform" method="GET">
+                    <button class="" type="submit" style="border-radius: 5px; align-self: center;">Add Food</button>
+                </form>
+                <br />
+
+                <form action="/home" method="GET">
+                    <button class="" type="submit" style="border-radius: 5px; align-self: center;">Logout</button>
+                </form>
+           
     </div>
 
-</body>
+</center></body>
     <div> <%- include("./partials/footer.ejs") %> </div>
 
-<!-- <script> console.log('does this work - food items')
-console.log(new Date());
-
-const foodObject = 
-[{   username: "name1", 
-    date: new Date(), 
-    mealCategory: "lunch", 
-    foodName: "apple", 
-    beverage: "water"
-},
-{   username: "name1", 
-    date: new Date(), 
-    mealCategory: "lunch", 
-    foodName: "orange", 
-    beverage: "water"
-},
-{   username: "name1", 
-    date: new Date(), 
-    mealCategory: "snack", 
-    foodName: "banana", 
-    beverage: "juice"
-}]
-</script> -->
 </html>
