@@ -9,24 +9,27 @@
 </br>
 </br>
 <div style="margin-top: 150px;">
-    <h1>Hey <%= foodObject[0].username %> </h1>
+    <h1>Hey <%= foodObject[0].userName %> </h1>
 </br> 
     <% foodObject.forEach(food => { %>
-       
+
         <% if (food.mealType === "breakfast") { %>
             <div>
                 <h3> What you had for: <%= food.mealType %></h3>
                 <p><%= food.foodName %></p>
+                <p><%= food.beverage %></p>
             </div>
         <% } else if(food.mealType === "Lunch"){ %>
             <div>
                 <h3> What you had for: <%= food.mealType %></h3>
                 <p><%= food.foodName %></p>
+                <p><%= food.beverage %></p>
             </div>
         <% } else { %>
             <div>
                 <h3> What you had for: <%= food.mealType %></h3>
                 <p><%= food.foodName %></p>
+                <p><%= food.beverage %></p>
             </div>
         <% } %>
     <% }) %>
